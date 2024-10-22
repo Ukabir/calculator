@@ -78,13 +78,13 @@
             </div>
             <div class="btm-div">
                 <div class="btn-div">
-                    <button onclick="solve1()">+</button>
-                    <button onclick="solve2()">x</button>
-                    <button onclick="solve3()">/</button>
-                    <button onclick="solve4()">-</button>
-                    <button onclick="solve5()">^</button>
-                    <button onclick="solve6()">Root</button>
-                    <button onclick="solve7()">%</button>
+                    <button onclick="solve('+')">+</button>
+                    <button onclick="solve('*')">x</button>
+                    <button onclick="solve('/')">/</button>
+                    <button onclick="solve('-')">-</button>
+                    <button onclick="solve('^')">^</button>
+                    <button onclick="solve('root')">Root</button>
+                    <button onclick="solve('%')">%</button>
                 </div>
                 <p id="screen"></p>
             </div>
@@ -94,53 +94,103 @@
         let screen = document.getElementById('screen')
         let inputOne = document.getElementById('inputOne')
         let inputTwo = document.getElementById('inputTwo')
-        function solve1() {
-            let answer = Number(inputOne.value) + Number(inputTwo.value)
-            screen.innerHTML = `The answer of ${inputOne.value} + ${inputTwo.value} = ${answer}`
+        // function solve1() {
+        //     let answer = Number(inputOne.value) + Number(inputTwo.value)
+        //     screen.innerHTML = `The answer of ${inputOne.value} + ${inputTwo.value} = ${answer}`
+        //     if (inputOne.value === '' || inputTwo.value === '') {
+        //         screen.innerHTML = `Input a number`
+        //     }
+        //     document.getElementById('inputTwo').value = ''
+        //     document.getElementById('inputOne').value = ''
+        // }
+        // function solve2() {
+        //     let answer = Number(inputOne.value) * Number(inputTwo.value)
+        //     screen.innerHTML = `The answer of ${inputOne.value} x ${inputTwo.value} = ${answer}`
+        //     if (inputOne.value === '' || inputTwo.value === '') {
+        //         screen.innerHTML = `Input a number`
+        //     }
+        //     document.getElementById('inputTwo').value = ''
+        //     document.getElementById('inputOne').value = ''
+        // }
+        // function solve3() {
+        //     let answer = Number(inputOne.value) / Number(inputTwo.value)
+        //     screen.innerHTML = `The answer of ${inputOne.value} / ${inputTwo.value} = ${answer}`
+        //     if (inputOne.value === '' || inputTwo.value === '') {
+        //         screen.innerHTML = `Input a number`
+        //     }
+        //     document.getElementById('inputTwo').value = ''
+        //     document.getElementById('inputOne').value = ''
+        // }
+        // function solve4() {
+        //     let answer = Number(inputOne.value) - Number(inputTwo.value)
+        //     screen.innerHTML = `The answer of ${inputOne.value} - ${inputTwo.value} = ${answer}`
+        //     if (inputOne.value === '' || inputTwo.value === '') {
+        //         screen.innerHTML = `Input a number`
+        //     }
+        //     document.getElementById('inputTwo').value = ''
+        //     document.getElementById('inputOne').value = ''
+        // }
+        // function solve5() {
+        //     let answer = Number(inputOne.value) ** Number(inputTwo.value)
+        //     screen.innerHTML = `The answer of ${inputOne.value} ^ ${inputTwo.value} = ${answer}`
+        //     if (inputOne.value === '' || inputTwo.value === '') {
+        //         screen.innerHTML = `Input a number`
+        //     }
+        //     document.getElementById('inputTwo').value = ''
+        //     document.getElementById('inputOne').value = ''
+        // }
+        // function solve6() {
+        //     // let answer = Number(inputOne.value) ** Number(inputTwo.value)
+        //     let root = 1/inputTwo.value
+        //     let answer = inputOne.value ** root
+        //     screen.innerHTML = `The answer is ${answer}`
+        //     if (inputTwo.value > 4) {
+        //         screen.innerHTML = `The root can't be greater than 4`
+        //     }
+        //     document.getElementById('inputTwo').value = ''
+        //     document.getElementById('inputOne').value = ''
+        // }
+        // function solve7() {
+        //     let answer = Number(inputOne.value) % Number(inputTwo.value)
+        //     screen.innerHTML = `The answer of ${inputOne.value} % ${inputTwo.value} = ${answer}`
+        //     if (inputOne.value === '' || inputTwo.value === '') {
+        //         screen.innerHTML = `Input a number`
+        //     }
+        //     document.getElementById('inputTwo').value = ''
+        //     document.getElementById('inputOne').value = ''
+        // }
+        function solve(oppr) {
+            if (oppr === '+') {
+                let answer = Number(inputOne.value) + Number(inputTwo.value)
+                screen.innerHTML = `The answer of ${inputOne.value} + ${inputTwo.value} = ${answer}`
+            }else if (oppr === '*') {
+                let answer = Number(inputOne.value) * Number(inputTwo.value)
+                screen.innerHTML = `The answer of ${inputOne.value} x ${inputTwo.value} = ${answer}`
+            }else if (oppr === '/') {
+                let answer = Number(inputOne.value) / Number(inputTwo.value)
+                screen.innerHTML = `The answer of ${inputOne.value} / ${inputTwo.value} = ${answer}`
+            }else if (oppr === '-') {
+                let answer = Number(inputOne.value) - Number(inputTwo.value)
+                screen.innerHTML = `The answer of ${inputOne.value} - ${inputTwo.value} = ${answer}`
+            }else if (oppr === '^') {
+                let answer = Number(inputOne.value) ** Number(inputTwo.value)
+                screen.innerHTML = `The answer of ${inputOne.value} ^ ${inputTwo.value} = ${answer}`
+            }else if (oppr === 'root') {
+                let root = 1/inputTwo.value
+                let answer = inputOne.value ** root
+                screen.innerHTML = `The answer is ${answer}`
+                if (inputTwo.value > 4) {
+                screen.innerHTML = `The root can't be greater than 4`
+                }
+            }else {
+                let answer = Number(inputOne.value) % Number(inputTwo.value)
+                screen.innerHTML = `The answer of ${inputOne.value} % ${inputTwo.value} = ${answer}`
+            }
             if (inputOne.value === '' || inputTwo.value === '') {
                 screen.innerHTML = `Input a number`
             }
-        }
-        function solve2() {
-            let answer = Number(inputOne.value) * Number(inputTwo.value)
-            screen.innerHTML = `The answer of ${inputOne.value} x ${inputTwo.value} = ${answer}`
-            if (inputOne.value === '' || inputTwo.value === '') {
-                screen.innerHTML = `Input a number`
-            }
-        }
-        function solve3() {
-            let answer = Number(inputOne.value) / Number(inputTwo.value)
-            screen.innerHTML = `The answer of ${inputOne.value} / ${inputTwo.value} = ${answer}`
-            if (inputOne.value === '' || inputTwo.value === '') {
-                screen.innerHTML = `Input a number`
-            }
-        }
-        function solve4() {
-            let answer = Number(inputOne.value) - Number(inputTwo.value)
-            screen.innerHTML = `The answer of ${inputOne.value} - ${inputTwo.value} = ${answer}`
-            if (inputOne.value === '' || inputTwo.value === '') {
-                screen.innerHTML = `Input a number`
-            }
-        }
-        function solve5() {
-            let answer = Number(inputOne.value) ** Number(inputTwo.value)
-            screen.innerHTML = `The answer of ${inputOne.value} ^ ${inputTwo.value} = ${answer}`
-            if (inputOne.value === '' || inputTwo.value === '') {
-                screen.innerHTML = `Input a number`
-            }
-        }
-        function solve6() {
-            // let answer = Number(inputOne.value) ** Number(inputTwo.value)
-            let root = 1/inputTwo.value
-            let answer = inputOne.value ** root
-            screen.innerHTML = `The answer is ${answer}`
-        }
-        function solve7() {
-            let answer = Number(inputOne.value) % Number(inputTwo.value)
-            screen.innerHTML = `The answer of ${inputOne.value} % ${inputTwo.value} = ${answer}`
-            if (inputOne.value === '' || inputTwo.value === '') {
-                screen.innerHTML = `Input a number`
-            }
+            document.getElementById('inputTwo').value = ''
+            document.getElementById('inputOne').value = ''
         }
     </script>
 </html>
